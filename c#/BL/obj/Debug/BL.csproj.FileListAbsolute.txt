@@ -1,0 +1,11 @@
+C:\dev\project\c#\BL\bin\Debug\BL.dll
+C:\dev\project\c#\BL\bin\Debug\BL.pdb
+C:\dev\project\c#\BL\obj\Debug\BL.csprojResolveAssemblyReference.cache
+C:\dev\project\c#\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
+C:\dev\project\c#\BL\obj\Debug\BL.dll
+C:\dev\project\c#\BL\obj\Debug\BL.pdb
+C:\dev\project\c#\BL\bin\Debug\Dal.dll
+C:\dev\project\c#\BL\bin\Debug\EntityFramework.dll
+C:\dev\project\c#\BL\bin\Debug\Dal.pdb
+C:\dev\project\c#\BL\bin\Debug\Dal.dll.config
+C:\dev\project\c#\BL\bin\Debug\EntityFramework.xml

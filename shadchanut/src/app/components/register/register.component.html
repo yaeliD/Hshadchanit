@@ -1,0 +1,61 @@
+<body>
+  <div class="re">
+      <h1>הרשמה</h1>
+
+     <input type="text" [(ngModel)]="c.FNameCandidates">: שם פרטי
+      <br><br>
+     <input type="text" [(ngModel)]="c.LNameCandidates"> :שם משפחה
+      <br><br>
+     <input type="text" [(ngModel)]="c.maleORfemale"> :מין
+      <br><br>
+     <input type="date" [(ngModel)]="c.dateOFbirth"> :תאריך לידה*
+      <br><br>
+     <input type="text" [(ngModel)]="c.heightCandidates">: גובה
+      <br><br>
+      <input type="text" [(ngModel)]="c.photoLink">: תמונה
+      <br><br>
+     <input type="text" [(ngModel)]="c.currentNow">: עיסוק נוכחי
+      <br><br>
+     <input type="text" [(ngModel)]="c.occupationAfter">: עיסוק אחרי חתונה
+      <br><br>
+     <input type="text" [(ngModel)]="c.wigORhandkerchief">: סוג כיסוי ראש
+      <br><br>
+     <input type="text" [(ngModel)]="c.addressCandidates">: כתובת
+      <br><br>
+      <input type="text" [(ngModel)]="c.nameFather">: שם אב
+      <br><br>
+      <input type="text" [(ngModel)]="c.nameMother">: שם אם
+      <br><br>
+      <input type="text" [(ngModel)]="c.occupationFather">: עיסוק אב 
+      <br><br>
+      <input type="text" [(ngModel)]="c.occupationMother">: עיסוק אם
+      <br><br>
+      <!-- <select [(ngModel)]="c.AdaFather.nameC" (ngModelChange)="findAda()">
+        <option *ngFor="let item of arrCategory">{{item.nameC}}</option>
+      </select>: עדה אם
+      <br><br>
+      <select [(ngModel)]="c.AdaMother.nameC" (ngModelChange)="findAda()">
+        <option *ngFor="let item of arrCategory">{{item.nameC}}</option>
+      </select>: עדה אם -->
+      <br><br>
+      <input type="text" [(ngModel)]="c.familyStatus">: סטטוס 
+      <br><br>
+      <input type="text" [(ngModel)]="c.numberOFchildren">: מס' ילדים במשפחה 
+      <br><br>
+      <input type="tel" [(ngModel)]="c.VonTOcontact1">: פון ליצירת קשר
+      <br><br>
+      <input type="tel" [(ngModel)]="c.VonTOcontact2">: פון ליצירת קשר
+      <br><br>
+      <input type="button" value="save"  class="save"(click)="addCandidates()">
+  </div>
+</body>
+
+  
+   
+  
+   
+
+ 
+  
+  
+ 

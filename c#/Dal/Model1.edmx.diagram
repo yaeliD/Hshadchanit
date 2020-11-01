@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0067f9ed842c427291ee464d5770b3cf" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="The_MatchmakerModel.Candidate" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_MatchmakerModel.community" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_MatchmakerModel.Constraint" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_MatchmakerModel.ListOfMosdot" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_MatchmakerModel.MosdotToCandidate" Width="1.5" PointX="8.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_MatchmakerModel.ProposalInProcess" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_MatchmakerModel.StepsOfProposal" Width="1.5" PointX="7.5" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_MatchmakerModel.sysdiagram" Width="1.5" PointX="8.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_MatchmakerModel.TypesOfStep" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="The_MatchmakerModel.FK__Constrain__codeC__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="The_MatchmakerModel.FK__MosdotToC__codeC__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="The_MatchmakerModel.FK__ProposalI__codeB__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="The_MatchmakerModel.FK__ProposalI__codeB__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="The_MatchmakerModel.FK_Candidates_community" ManuallyRouted="false" />
+        <AssociationConnector Association="The_MatchmakerModel.FK_Candidates_community1" ManuallyRouted="false" />
+        <AssociationConnector Association="The_MatchmakerModel.FK_MosdotToCandidate_ListOfMosdot" ManuallyRouted="false" />
+        <AssociationConnector Association="The_MatchmakerModel.FK_StepsOfProposal_ProposalInProcess" ManuallyRouted="false" />
+        <AssociationConnector Association="The_MatchmakerModel.FK_StepsOfProposal_TypesOfSteps" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
