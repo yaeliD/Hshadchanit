@@ -9,17 +9,10 @@ namespace BL
 {
     public class BlClass1 
     {
-        public bool GetShadchnit(string name, string password)
-        {
-            using (var DB = new TestsDBnewEntities1())
-            {
-                var answer = DB.Users.Where(x => x.username == name && x.password.ToString() == password).Select(x => x.username).Any();
-                if (answer)
-                    return true;
-                else
-                    return false;
-            }
-        }
+        //public bool GetShadchnit(string name, string password)
+        //{
+           
+        //}
 
     }
 }

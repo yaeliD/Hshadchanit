@@ -6,32 +6,22 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
-
+using Dto;
 namespace shadchanut.Controllers
 {
+    [RoutePrefix("api/shadchanit")]
     [EnableCors(methods: "*", headers: "*", origins: "*")]
     public class ShadchanitController : ApiController
     {
+        [Route("getShdchanit")]
         [HttpPost]
-        public IHttpActionResult GetShadchnit(shadchanit s)
+        public IHttpActionResult GetShdchanit(ShadchanitDto s)
         {
-            BlClass1 bl = new BlClass1();
-            if(bl.(s.))
+            bool b=  BL.shadchanitBl.GetShdchanit(s);
+            //  BlClass1 bl = new BlClass1();
+            return Ok(b);
         }
-      
-            if (bl.())
-            {
-                up = textBox2.Text;
-                MessageBox.Show("שלום לך!!");
-                Form2 f = new Form2();
-                f.Show();
-                staticclass.mark = 0;
-            }
-            else
-            {
-                MessageBox.Show("לא תקין");
-            }
-        
     }
-}
+}    
+ 
     

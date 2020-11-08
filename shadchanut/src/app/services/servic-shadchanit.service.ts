@@ -8,9 +8,10 @@ import { shadchanit } from 'src/class/shadchanit';
   providedIn: 'root'
 })
 export class ServicShadchanitService {
-  // loginShadchanit(s:shadchanit)
-  // {
-  //   return this.http.post<shadchanit>("http://localhost:56204//api/shadchanit/GetShadchnit",s)
-  // }
-  // constructor(public http:HttpClient) { }
+  FindShadchanit(s:shadchanit)
+  {
+
+    return this.http.post<shadchanit>("http://localhost:55004/api/shadchanit/getShdchanit",s)
+  }
+  constructor(public http:HttpClient) { }
 }

@@ -9,3 +9,9 @@ C:\dev\project\c#\BL\bin\Debug\EntityFramework.dll
 C:\dev\project\c#\BL\bin\Debug\Dal.pdb
 C:\dev\project\c#\BL\bin\Debug\Dal.dll.config
 C:\dev\project\c#\BL\bin\Debug\EntityFramework.xml
+C:\dev\project\c#\BL\bin\Debug\Dto.dll
+C:\dev\project\c#\BL\bin\Debug\Dto.pdb
+C:\dev\project\c#\BL\bin\Debug\BL.dll.config
+C:\dev\project\c#\BL\bin\Debug\EntityFramework.SqlServer.dll
+C:\dev\project\c#\BL\bin\Debug\Dto.dll.config
+C:\dev\project\c#\BL\bin\Debug\EntityFramework.SqlServer.xml

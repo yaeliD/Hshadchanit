@@ -12,11 +12,7 @@ namespace shadchanut.Controllers
     [EnableCors(methods: "*", headers: "*", origins: "*")]
     public class CandidateController : ApiController
     {
-        public IHttpActionResult GetShadchnit(Candidate c)
-        {
-            BlClass1 bl = new BlClass1();
-            if (bl.(s.))
-        }
+        
 
     }
 }

@@ -34,5 +34,6 @@ namespace Dal
         public virtual DbSet<StepsOfProposal> StepsOfProposals { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TypesOfStep> TypesOfSteps { get; set; }
+        public virtual DbSet<Shadchnit> Shadchnits { get; set; }
     }
 }

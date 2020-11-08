@@ -17,19 +17,21 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
-  // loginShadchanit() בודק האם זה באמת השדכנית 
-  // {
-  //   this.ser.findShadchanit(this.s).subscribe(suc=>{
-  //     //found 
-  //     sessionStorage.setItem("userNow", this.s.username)
-  //    if(suc==true){alert("ברוכים הבאים");this.router.navigate(["Matches"]); 
-  //    sessionStorage.setItem('userNow',this.s.username);sessionStorage.setItem('user_password',this.s.password.toString());}
-  //    //not found
-  //     else if(suc==false){alert("אינך קיים במערכת");this.router.navigate(["Register"]);}
-  //     //password not correct
-  //     else{alert("סיסמה שגויה:");}
-  //   })
-  //     }
+  //בודק האם זה באמת השדכנית 
+   loginShadchanit() 
+   {
+     this.ser.FindShadchanit(this.s).subscribe(suc=>{
+      //found 
+      localStorage.setItem("userNow", this.s.username)
+      alert("סיסמה:");
+     if(suc==true){alert("ברוכים הבאים");this.router.navigate(["Matches"]); 
+      localStorage.setItem('userNow',this.s.username);localStorage.setItem('password_shadchanit',this.s.password_shadchanit.toString());}
+      //not found
+       else if(suc==false){alert("אינך קיים במערכת");this.router.navigate(["Register"]);}
+       //password not correct
+       else{alert("סיסמה שגויה:");}
+    })
+      }
 }
 
 

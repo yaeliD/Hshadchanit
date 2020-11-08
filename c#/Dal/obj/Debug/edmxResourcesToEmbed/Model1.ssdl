@@ -50,7 +50,6 @@
     </Key>
     <Property Name="codeM" Type="int" Nullable="false" />
     <Property Name="nameM" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="cityM" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="MosdotToCandidate">
     <Key>
@@ -69,6 +68,14 @@
     <Property Name="codeBT" Type="int" Nullable="false" />
     <Property Name="codeBN" Type="int" Nullable="false" />
     <Property Name="dateP" Type="date" />
+    <Property Name="stepMeeting" Type="int" />
+  </EntityType>
+  <EntityType Name="Shadchnit">
+    <Key>
+      <PropertyRef Name="password_shadchanit" />
+    </Key>
+    <Property Name="password_shadchanit" Type="int" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="StepsOfProposal">
     <Key>
@@ -181,15 +188,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_StepsOfProposal_ProposalInProcess">
-    <End Role="ProposalInProcess" Type="Self.ProposalInProcess" Multiplicity="1" />
-    <End Role="StepsOfProposal" Type="Self.StepsOfProposal" Multiplicity="*" />
+  <Association Name="FK_ProposalInProcess_StepsOfProposal">
+    <End Role="StepsOfProposal" Type="Self.StepsOfProposal" Multiplicity="0..1" />
+    <End Role="ProposalInProcess" Type="Self.ProposalInProcess" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="ProposalInProcess">
-        <PropertyRef Name="codeP" />
+      <Principal Role="StepsOfProposal">
+        <PropertyRef Name="stepPcode" />
       </Principal>
-      <Dependent Role="StepsOfProposal">
-        <PropertyRef Name="codeStep" />
+      <Dependent Role="ProposalInProcess">
+        <PropertyRef Name="stepMeeting" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -212,6 +219,7 @@
     <EntitySet Name="ListOfMosdot" EntityType="Self.ListOfMosdot" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MosdotToCandidate" EntityType="Self.MosdotToCandidate" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProposalInProcess" EntityType="Self.ProposalInProcess" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Shadchnit" EntityType="Self.Shadchnit" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StepsOfProposal" EntityType="Self.StepsOfProposal" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TypesOfSteps" EntityType="Self.TypesOfSteps" Schema="dbo" store:Type="Tables" />
@@ -243,9 +251,9 @@
       <End Role="ListOfMosdot" EntitySet="ListOfMosdot" />
       <End Role="MosdotToCandidate" EntitySet="MosdotToCandidate" />
     </AssociationSet>
-    <AssociationSet Name="FK_StepsOfProposal_ProposalInProcess" Association="Self.FK_StepsOfProposal_ProposalInProcess">
-      <End Role="ProposalInProcess" EntitySet="ProposalInProcess" />
+    <AssociationSet Name="FK_ProposalInProcess_StepsOfProposal" Association="Self.FK_ProposalInProcess_StepsOfProposal">
       <End Role="StepsOfProposal" EntitySet="StepsOfProposal" />
+      <End Role="ProposalInProcess" EntitySet="ProposalInProcess" />
     </AssociationSet>
     <AssociationSet Name="FK_StepsOfProposal_TypesOfSteps" Association="Self.FK_StepsOfProposal_TypesOfSteps">
       <End Role="TypesOfSteps" EntitySet="TypesOfSteps" />

@@ -24,10 +24,12 @@ namespace Dal
         public int codeBT { get; set; }
         public int codeBN { get; set; }
         public Nullable<System.DateTime> dateP { get; set; }
+        public Nullable<int> stepMeeting { get; set; }
     
         public virtual Candidate Candidate { get; set; }
         public virtual Candidate Candidate1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StepsOfProposal> StepsOfProposals { get; set; }
+        public virtual StepsOfProposal StepsOfProposal { get; set; }
     }
 }

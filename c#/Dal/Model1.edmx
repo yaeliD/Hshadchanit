@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="The_MatchmakerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="The_MatchmakerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Candidates">
           <Key>
             <PropertyRef Name="codeCandidates" />
@@ -55,7 +55,6 @@
           </Key>
           <Property Name="codeM" Type="int" Nullable="false" />
           <Property Name="nameM" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="cityM" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="MosdotToCandidate">
           <Key>
@@ -74,6 +73,14 @@
           <Property Name="codeBT" Type="int" Nullable="false" />
           <Property Name="codeBN" Type="int" Nullable="false" />
           <Property Name="dateP" Type="date" />
+          <Property Name="stepMeeting" Type="int" />
+        </EntityType>
+        <EntityType Name="Shadchnit">
+          <Key>
+            <PropertyRef Name="password_shadchanit" />
+          </Key>
+          <Property Name="password_shadchanit" Type="int" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="StepsOfProposal">
           <Key>
@@ -186,15 +193,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_StepsOfProposal_ProposalInProcess">
-          <End Role="ProposalInProcess" Type="Self.ProposalInProcess" Multiplicity="1" />
-          <End Role="StepsOfProposal" Type="Self.StepsOfProposal" Multiplicity="*" />
+        <Association Name="FK_ProposalInProcess_StepsOfProposal">
+          <End Role="StepsOfProposal" Type="Self.StepsOfProposal" Multiplicity="0..1" />
+          <End Role="ProposalInProcess" Type="Self.ProposalInProcess" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ProposalInProcess">
-              <PropertyRef Name="codeP" />
+            <Principal Role="StepsOfProposal">
+              <PropertyRef Name="stepPcode" />
             </Principal>
-            <Dependent Role="StepsOfProposal">
-              <PropertyRef Name="codeStep" />
+            <Dependent Role="ProposalInProcess">
+              <PropertyRef Name="stepMeeting" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -217,6 +224,7 @@
           <EntitySet Name="ListOfMosdot" EntityType="Self.ListOfMosdot" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MosdotToCandidate" EntityType="Self.MosdotToCandidate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProposalInProcess" EntityType="Self.ProposalInProcess" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shadchnit" EntityType="Self.Shadchnit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StepsOfProposal" EntityType="Self.StepsOfProposal" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypesOfSteps" EntityType="Self.TypesOfSteps" Schema="dbo" store:Type="Tables" />
@@ -248,17 +256,16 @@
             <End Role="ListOfMosdot" EntitySet="ListOfMosdot" />
             <End Role="MosdotToCandidate" EntitySet="MosdotToCandidate" />
           </AssociationSet>
-          <AssociationSet Name="FK_StepsOfProposal_ProposalInProcess" Association="Self.FK_StepsOfProposal_ProposalInProcess">
-            <End Role="ProposalInProcess" EntitySet="ProposalInProcess" />
+          <AssociationSet Name="FK_ProposalInProcess_StepsOfProposal" Association="Self.FK_ProposalInProcess_StepsOfProposal">
             <End Role="StepsOfProposal" EntitySet="StepsOfProposal" />
+            <End Role="ProposalInProcess" EntitySet="ProposalInProcess" />
           </AssociationSet>
           <AssociationSet Name="FK_StepsOfProposal_TypesOfSteps" Association="Self.FK_StepsOfProposal_TypesOfSteps">
             <End Role="TypesOfSteps" EntitySet="TypesOfSteps" />
             <End Role="StepsOfProposal" EntitySet="StepsOfProposal" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="The_MatchmakerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -346,6 +353,8 @@
           <NavigationProperty Name="Candidate" Relationship="Self.FK__ProposalI__codeB__3D5E1FD2" FromRole="ProposalInProcess" ToRole="Candidates" />
           <NavigationProperty Name="Candidate1" Relationship="Self.FK__ProposalI__codeB__3E52440B" FromRole="ProposalInProcess" ToRole="Candidates" />
           <NavigationProperty Name="StepsOfProposals" Relationship="Self.FK_StepsOfProposal_ProposalInProcess" FromRole="ProposalInProcess" ToRole="StepsOfProposal" />
+          <Property Name="stepMeeting" Type="Int32" />
+          <NavigationProperty Name="StepsOfProposal" Relationship="The_MatchmakerModel.FK_ProposalInProcess_StepsOfProposal" FromRole="ProposalInProcess" ToRole="StepsOfProposal" />
         </EntityType>
         <EntityType Name="StepsOfProposal">
           <Key>
@@ -358,6 +367,7 @@
           <Property Name="results" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="ProposalInProcess" Relationship="Self.FK_StepsOfProposal_ProposalInProcess" FromRole="StepsOfProposal" ToRole="ProposalInProcess" />
           <NavigationProperty Name="TypesOfStep" Relationship="Self.FK_StepsOfProposal_TypesOfSteps" FromRole="StepsOfProposal" ToRole="TypesOfSteps" />
+          <NavigationProperty Name="ProposalInProcesses" Relationship="The_MatchmakerModel.FK_ProposalInProcess_StepsOfProposal" FromRole="StepsOfProposal" ToRole="ProposalInProcess" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -531,7 +541,31 @@
             <End Role="TypesOfSteps" EntitySet="TypesOfSteps" />
             <End Role="StepsOfProposal" EntitySet="StepsOfProposals" />
           </AssociationSet>
+          <EntitySet Name="Shadchnits" EntityType="The_MatchmakerModel.Shadchnit" />
+          <AssociationSet Name="FK_ProposalInProcess_StepsOfProposal" Association="The_MatchmakerModel.FK_ProposalInProcess_StepsOfProposal">
+            <End Role="StepsOfProposal" EntitySet="StepsOfProposals" />
+            <End Role="ProposalInProcess" EntitySet="ProposalInProcesses" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Shadchnit">
+          <Key>
+            <PropertyRef Name="password_shadchanit" />
+          </Key>
+          <Property Name="password_shadchanit" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_ProposalInProcess_StepsOfProposal">
+          <End Type="The_MatchmakerModel.StepsOfProposal" Role="StepsOfProposal" Multiplicity="0..1" />
+          <End Type="The_MatchmakerModel.ProposalInProcess" Role="ProposalInProcess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StepsOfProposal">
+              <PropertyRef Name="stepPcode" />
+            </Principal>
+            <Dependent Role="ProposalInProcess">
+              <PropertyRef Name="stepMeeting" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -590,7 +624,6 @@
               <MappingFragment StoreEntitySet="ListOfMosdot">
                 <ScalarProperty Name="codeM" ColumnName="codeM" />
                 <ScalarProperty Name="nameM" ColumnName="nameM" />
-                <ScalarProperty Name="cityM" ColumnName="cityM" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -607,6 +640,7 @@
           <EntitySetMapping Name="ProposalInProcesses">
             <EntityTypeMapping TypeName="The_MatchmakerModel.ProposalInProcess">
               <MappingFragment StoreEntitySet="ProposalInProcess">
+                <ScalarProperty Name="stepMeeting" ColumnName="stepMeeting" />
                 <ScalarProperty Name="codeP" ColumnName="codeP" />
                 <ScalarProperty Name="codeBT" ColumnName="codeBT" />
                 <ScalarProperty Name="codeBN" ColumnName="codeBN" />
@@ -641,6 +675,14 @@
               <MappingFragment StoreEntitySet="TypesOfSteps">
                 <ScalarProperty Name="codeTypeStep" ColumnName="codeTypeStep" />
                 <ScalarProperty Name="nameStep" ColumnName="nameStep" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shadchnits">
+            <EntityTypeMapping TypeName="The_MatchmakerModel.Shadchnit">
+              <MappingFragment StoreEntitySet="Shadchnit">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password_shadchanit" ColumnName="password_shadchanit" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

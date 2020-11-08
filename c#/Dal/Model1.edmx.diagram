@@ -23,6 +23,8 @@
         <AssociationConnector Association="The_MatchmakerModel.FK_MosdotToCandidate_ListOfMosdot" ManuallyRouted="false" />
         <AssociationConnector Association="The_MatchmakerModel.FK_StepsOfProposal_ProposalInProcess" ManuallyRouted="false" />
         <AssociationConnector Association="The_MatchmakerModel.FK_StepsOfProposal_TypesOfSteps" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="The_MatchmakerModel.Shadchnit" Width="1.5" PointX="0.75" PointY="0.75" />
+        <AssociationConnector Association="The_MatchmakerModel.FK_ProposalInProcess_StepsOfProposal" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

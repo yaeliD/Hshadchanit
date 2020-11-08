@@ -53,7 +53,6 @@
         <MappingFragment StoreEntitySet="ListOfMosdot">
           <ScalarProperty Name="codeM" ColumnName="codeM" />
           <ScalarProperty Name="nameM" ColumnName="nameM" />
-          <ScalarProperty Name="cityM" ColumnName="cityM" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -70,6 +69,7 @@
     <EntitySetMapping Name="ProposalInProcesses">
       <EntityTypeMapping TypeName="The_MatchmakerModel.ProposalInProcess">
         <MappingFragment StoreEntitySet="ProposalInProcess">
+          <ScalarProperty Name="stepMeeting" ColumnName="stepMeeting" />
           <ScalarProperty Name="codeP" ColumnName="codeP" />
           <ScalarProperty Name="codeBT" ColumnName="codeBT" />
           <ScalarProperty Name="codeBN" ColumnName="codeBN" />
@@ -104,6 +104,14 @@
         <MappingFragment StoreEntitySet="TypesOfSteps">
           <ScalarProperty Name="codeTypeStep" ColumnName="codeTypeStep" />
           <ScalarProperty Name="nameStep" ColumnName="nameStep" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shadchnits">
+      <EntityTypeMapping TypeName="The_MatchmakerModel.Shadchnit">
+        <MappingFragment StoreEntitySet="Shadchnit">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password_shadchanit" ColumnName="password_shadchanit" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
